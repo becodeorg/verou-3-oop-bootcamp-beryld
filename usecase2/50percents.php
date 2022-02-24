@@ -20,7 +20,11 @@ class Product
     }
     public function getTva()
     {
-        return ($this->gettotal()/100* $this->tva);
+        return ($this->getTotal()/100* $this->tva);
+    }
+    public function getDiscount()
+    {
+        return ($this->getTotal()/2);
     }
 }
 
@@ -28,6 +32,8 @@ class Product
 $product1 = new Product ('banana', 1, 6, 6);
 $product2 = new Product ('apple', 1.5, 3, 6);
 $product3 = new Product ('wine', 10, 2, 6);
+//Could have created this with a foreach from basket.php
+
 echo ($product2 ->getTotal()) + ($product1 ->getTotal())+ ($product3->getTotal());
 echo "<br>";
 echo $product1 -> getTotal();
@@ -37,7 +43,8 @@ echo "<br>";
 echo $product3 -> getTotal();
 echo "<br>";
 echo $product2-> getTva();
-
+echo "<br>";
+echo $product1->getDiscount();
 // echo getTotal()
-//Could have created this with a foreach from basket.php
+
 

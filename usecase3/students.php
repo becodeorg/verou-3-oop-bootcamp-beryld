@@ -5,6 +5,7 @@
      public string $name;
      public float $grade;
      public int $group;
+     
 
      public function __construct($name, $grade, $group =1)
      {
@@ -30,19 +31,32 @@
     
      public function getAverageGrade()
      {
-         $cpt = null ;
-         $averageGroup1 = 0;
-         if($this->group ==1){
-             $cpt = $cpt + 1;
-             $averageGroup1 += $this->grade ;
-             echo $cpt;
-            //  echo "$this->grade";
-            //  echo $averageGroup1; //TODO: Here it's not incrementing but echoing at every indexes 
-            //TODO: I guess I have to push everything in a new array and then calculate from there ... Pouah ! 
-            return $cpt;
-         }
-         echo $averageGroup1;
-         return $averageGroup1;
+        if ($this->group==1){
+            $group1point = $this->grade;
+            return $group1point;
+        }
+        else
+        if ($this->group == 2){
+            $group2point = $this->grade;
+            return $group2point;
+        }
+
+        //  $cpt = null ;
+        //  $averageGroup1 = 0;
+        //  echo "even before $abc";
+        //  if($this->group ==1){
+        //      echo "$abc before";
+        //      $abc = $abc + 1;
+        //      echo " $abc temp";
+        //      $averageGroup1 += $this->grade ;
+        //      echo" the cpt :  $abc <br>";
+        //     //  echo "$this->grade";
+        //      echo $averageGroup1; 
+        //     //TODO: Here it's not incrementing but echoing at every indexes 
+        //     //TODO: I guess I have to push everything in a new array and then calculate from there ... Pouah ! 
+        //     // return $abc;
+        //  }
+        
 
      }
  }
@@ -75,11 +89,23 @@ $student98 = new Student('Californium',25.1), // that's not a typo thats the 98t
 $student19 = new Student ('Potassium', 39.098),
 $student20 = new Student ('Calcium',40.078),
 ];
-
+$group1average =0 ;
+$group2average = 0 ;
 foreach($students as $stud ){
+    
+    $group1average = $group1average + $stud->getAverageGrade();
+    echo "<pre>";
+echo "group1 : " .$group1average;
+    echo "</pre>";
+    //MAY WANT TO CALL IN TWO DIFFERENT FUNCTIONS ! 
+    $group2average = $group2average + $stud->getAverageGrade();
+    echo "<pre>";
+echo " group2 : " . $group2average;
+    echo "</pre>";
     $stud->getClass1();
-    $stud ->getAverageGrade();
     
 };
+echo "goooo" . $group1average / 10;
+echo "notgoo" .$group2average / 10;
 
 // $students->getAverageGrade();

@@ -12,7 +12,7 @@ $products =
     ['name' => 'wine', 'price' => 10, 'pieces' => 2, 'tva' => 6]
 ];
             
-$total = 0;            
+$total = 0;         //Quite a lot of globals !! change that !   
 $calculEdit = 0;
 $tvapart = 0;
 $tvatotal = 0;
@@ -24,12 +24,20 @@ foreach($products as $index => $calculatePrice)
     $calculEdit = $calculEdit + $calcul;
     
    //Calcul the tva percentage
-   if($products[$index]['tva']==6)
-   {
+   if($products[$index]['name']!= "wine")
+   {    
+       echo "<pre>";
         $tvapart = (($calcul / 100) * 6);
         $name = $products[$index]["name"];
         echo "$tvapart is the tva part of  $name ";
-        echo "<br>";
+        echo "</pre>";
+    }
+    if($products[$index]['name'] == "wine" ){
+        echo "<pre>";
+        $tvapart = (($calcul / 100) * 21);
+        $name = $products[$index]["name"];
+        echo "$tvapart is the tva part of  $name ";
+        echo "</pre>";
     }
 }
 
@@ -41,18 +49,3 @@ echo "the total price is :  $calculEdit";
 
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-
-    
-</body>
-</html>

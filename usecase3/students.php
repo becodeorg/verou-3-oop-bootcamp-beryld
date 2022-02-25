@@ -11,15 +11,39 @@
         $this-> name =$name;
         $this->grade = $grade;
         $this->group = $group;
-        if($this->grade >20)
-        {
+        if(str_ends_with($this->name, 'ium')){
+            
             $this->group = 2;
         }
+       
         
      }
-     public function getClass()
+     public function getClass1()
      {
-         echo $this->group;
+         if($this->group ==1){
+             echo "<pre> name :  $this->name  grade :  $this->grade  group : $this->group </pre> <br> ";
+            }  
+            elseif($this->group ==2){
+                echo "<pre> name :  $this->name  grade :  $this->grade  group : $this->group </pre> <br> ";
+               } 
+     }
+    
+     public function getAverageGrade()
+     {
+         $cpt = null ;
+         $averageGroup1 = 0;
+         if($this->group ==1){
+             $cpt = $cpt + 1;
+             $averageGroup1 += $this->grade ;
+             echo $cpt;
+            //  echo "$this->grade";
+            //  echo $averageGroup1; //TODO: Here it's not incrementing but echoing at every indexes 
+            //TODO: I guess I have to push everything in a new array and then calculate from there ... Pouah ! 
+            return $cpt;
+         }
+         echo $averageGroup1;
+         return $averageGroup1;
+
      }
  }
 
@@ -47,11 +71,15 @@ $student14 = new Student ('Silicon', 28.085),
 $student15 = new Student ('Phosphorus',30.974),
 $student16 = new Student('Sulphur', 32.06),
 $student17 = new Student('Chlorine', 35.45),
-$student18 = new Student('Argon',39.95),
+$student98 = new Student('Californium',25.1), // that's not a typo thats the 98th element
 $student19 = new Student ('Potassium', 39.098),
 $student20 = new Student ('Calcium',40.078),
 ];
 
 foreach($students as $stud ){
-    $stud->getClass();
+    $stud->getClass1();
+    $stud ->getAverageGrade();
+    
 };
+
+// $students->getAverageGrade();

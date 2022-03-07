@@ -31,15 +31,11 @@
     
      public function getAverageGrade()
      {
-        if ($this->group==1){
+        if ($this->group === 1){
             $group1point = $this->grade;
             return $group1point;
         }
-        else
-        if ($this->group == 2){
-            $group2point = $this->grade;
-            return $group2point;
-        }
+       
 
         //  $cpt = null ;
         //  $averageGroup1 = 0;
@@ -58,6 +54,13 @@
         //  }
         
 
+     }
+     public function getAverageGRade2()
+     {
+        if ($this->group === 2){
+            $group2point = $this->grade;
+            return $group2point;
+        }
      }
  }
 
@@ -98,14 +101,15 @@ foreach($students as $stud ){
 echo "group1 : " .$group1average;
     echo "</pre>";
     //MAY WANT TO CALL IN TWO DIFFERENT FUNCTIONS ! 
-    $group2average = $group2average + $stud->getAverageGrade();
+    $group2average = $group2average + $stud->getAverageGrade2();
     echo "<pre>";
 echo " group2 : " . $group2average;
     echo "</pre>";
     $stud->getClass1();
     
 };
-echo "goooo" . $group1average / 10;
-echo "notgoo" .$group2average / 10;
+echo "groupe 1 average grade = " . $group1average / 10;
+echo "<br>";
+echo "groupe 2 average grade = " .$group2average / 10;
 
 // $students->getAverageGrade();
